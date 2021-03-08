@@ -49,6 +49,7 @@ describe('resolver', function() {
     let errorThrows = 0;
     const overwriteDirs = ['browser/', 'custom-target/', 'main/', 'module/'];
     for (const currDir of overwriteDirs) {
+      console.log('currDir: ', currDir);
       try {
         await bundle(
           path.join(
@@ -57,6 +58,7 @@ describe('resolver', function() {
           ),
         );
       } catch (e) {
+        console.log('error message: ', e.diagnostics[0].message);
         errorThrows++;
         assert.deepEqual(
           e.diagnostics[0].message,
