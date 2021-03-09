@@ -49,6 +49,7 @@ describe('resolver', function() {
     let errorThrows = 0;
     const overwriteDirs = ['browser/', 'custom-target/', 'main/', 'module/'];
     for (const currDir of overwriteDirs) {
+      // eslint-disable-next-line no-console
       console.log('currDir: ', currDir);
       try {
         await bundle(
@@ -58,6 +59,7 @@ describe('resolver', function() {
           ),
         );
       } catch (e) {
+        // eslint-disable-next-line no-console
         console.log('error message: ', e.diagnostics[0].message);
         errorThrows++;
         assert.deepEqual(
